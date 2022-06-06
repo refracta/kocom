@@ -123,7 +123,7 @@
 
         </div>
 
-        <div id="view_main" class="panel-body">
+        <div id="view_main" class="panel-body ck-content">
             <span id="writeContents" style="word-wrap:break-word;">
                 {!!  $post->content  !!}
             </span>
