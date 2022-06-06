@@ -23,7 +23,7 @@
         </div>
 
         <div class="collapse navbar-collapse navbar-bottom-collapse">
-            <a href=""><strong>KO</strong>REATECH <strong>COM</strong>PUTER COMMUNITY <strong>KOCOM</strong></a> | <a href="https://github.com/refracta">GitHub</a> | <a href="mailto:refracta@koreatech.ac.kr">관리자: refracta (refracta@koreatech.ac.kr)</a>
+            <a href=""><strong>KO</strong>REATECH <strong>COM</strong>PUTER COMMUNITY <strong>KOCOM</strong></a> | <a href="https://github.com/refracta/kocom">GitHub</a> | <a href="mailto:refracta@koreatech.ac.kr">관리자: refracta (refracta@koreatech.ac.kr)</a>
 
             </p>
 
