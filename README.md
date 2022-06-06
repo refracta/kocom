@@ -26,6 +26,7 @@ exit
 # storage 초기화
 ```
 http://localhost:8989 PHPMyAdmin에 ID:root/PW:password로 진입
+
 kocom.sql 가져오기로 테이블 초기화
 
 http://localhost 로 사이트 확인
