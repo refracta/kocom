@@ -10,7 +10,7 @@ docker run --rm \
     laravelsail/php81-composer:latest \
     bash -c "laravel new kocom && cd kocom && php ./artisan sail:install --with=mysql" && \
 cp -rf tmp/* kocom/ && rm -rf tmp && \
-./vendor/bin/sail up
+cd kocom && ./vendor/bin/sail up
 ```
 
 ```
