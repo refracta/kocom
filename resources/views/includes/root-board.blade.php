@@ -12,7 +12,7 @@
     <div class="col-sm-6">
         @include('includes.panel', ['name'=>'notice', 'limit'=>4])
         @include('includes.panel', ['name'=>'school', 'limit'=>3])
-        @include('includes.panel', ['name'=>'unreg', 'limit'=>3])
+{{--        @include('includes.panel', ['name'=>'unreg', 'limit'=>3])--}}
     </div>
     <div class="col-sm-6">
         @include('includes.panel', ['name'=>'sell', 'limit'=>10])
