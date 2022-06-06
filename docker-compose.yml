@@ -49,7 +49,7 @@ services:
         links:
         - mysql:mysql
         ports:
-            - 8989:80
+            - '${PMA_PORT:-8989}:80'
         environment:
             MYSQL_USERNAME: "${DB_USERNAME}"
             MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
