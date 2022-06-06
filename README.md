@@ -7,7 +7,6 @@ git clone https://github.com/refracta/kocom -b develop tmp && \
 docker run --rm \
     -v "$(pwd)":/opt \
     -w /opt \
-    -e MYSQL_ROOT_HOST=% \
     laravelsail/php81-composer:latest \
     bash -c "laravel new kocom && cd kocom && php ./artisan sail:install --with=mysql" && \
 cp -rf tmp/* kocom/ && rm -rf tmp && \
