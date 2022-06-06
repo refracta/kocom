@@ -118,7 +118,8 @@
     </div>
 </form>
 
-<script>
+<script type="text/javascript">
+    $("#{{$board->name}}").css({'background-color': '#ed6e0c'});
     class MyUploadAdapter {
         constructor(loader) {
             this.loader = loader;
