@@ -187,7 +187,8 @@
         </div>
     </form>
 </div>
-<script>
+<script type="text/javascript">
+    $("#{{$board->name}}").css({'background-color': '#ed6e0c'});
     let query = Object.fromEntries(new URLSearchParams(window.location.search).entries());
     if (query.option) {
         $('#option').val(query.option).prop('selected', true);
