@@ -1,0 +1,30 @@
+/* 마우스가 메뉴에 올라가면 자동으로 dropdown 되게 */
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+}
+
+/* panel top, bottom의 높이를 20px에서 ...px로 */
+.panel {
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.container-fluid {
+   max-width:1270px;
+}
+
+@media screen and (max-width: 767px) { 
+    body { 
+        font-size: 14px; 
+    } 
+    .btn-sm { 
+        font-size: 14px; 
+    } 
+    .navbar.resp .nav-collapse {
+        width: 50%;
+    }
+} 
+
+td { white-space:inherit !important } 
+
+.nav > li { display:inline-block }

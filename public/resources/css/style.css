@@ -1,0 +1,155 @@
+/* panel top, bottom의 높이를 20px에서 ...px로 */
+.panel {
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.panel-heading {
+    background-color: #004080 !important;
+}
+
+.panel-heading > a {
+    color: white;
+}
+
+.container-fluid {
+    max-width: 1270px;
+}
+
+td {
+    white-space: inherit !important
+}
+
+
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+
+    .btn-sm {
+        font-size: 14px;
+    }
+
+    .navbar.resp .nav-collapse {
+        width: 50%;
+    }
+}
+
+@media not screen and (max-width: 767px) {
+    .nav > li {
+        display: inline-block
+    }
+
+    /* 마우스가 메뉴에 올라가면 자동으로 dropdown 되게 */
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
+
+
+.main-navbar {
+    background-color: #004080;
+    border-color: #425766;
+    margin-bottom: 0px;
+}
+
+.main-navbar .navbar-brand {
+    color: #fff;
+}
+
+.main-navbar .navbar-brand:hover, .main-navbar .navbar-brand:focus {
+    color: #AAD5FF;
+}
+
+.main-navbar .navbar-text {
+    color: #d7e2e9;
+}
+
+.main-navbar .navbar-nav > li > a {
+    color: #fff;
+}
+
+.main-navbar .navbar-nav > li > a:hover, .main-navbar .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #ed6e0c;
+}
+
+.main-navbar .navbar-nav > li > .dropdown-menu {
+    background-color: #2894FF;
+}
+
+.main-navbar .navbar-nav > li > .dropdown-menu > li > a {
+    color: #d7e2e9;
+}
+
+.main-navbar .navbar-nav > li > .dropdown-menu > li > a:hover,
+.main-navbar .navbar-nav > li > .dropdown-menu > li > a:focus {
+    color: #fff;
+    background-color: #004182;
+}
+
+.main-navbar .navbar-nav > li > .dropdown-menu > li > .divider {
+    background-color: #69899f;
+}
+
+.main-navbar .navbar-nav > .active > a, .main-navbar .navbar-nav > .active > a:hover, .main-navbar .navbar-nav > .active > a:focus {
+    color: #e5dbdb;
+    background-color: #ed6e0c;
+}
+
+.main-navbar .navbar-nav > .open > a, .main-navbar .navbar-nav > .open > a:hover, .main-navbar .navbar-nav > .open > a:focus {
+    color: #e5dbdb;
+    background-color: #425766;
+}
+
+.main-navbar .navbar-toggle {
+    border-color: #425766;
+}
+
+.main-navbar .navbar-toggle:hover, .main-navbar .navbar-toggle:focus {
+    background-color: #425766;
+}
+
+.main-navbar .navbar-toggle .icon-bar {
+    background-color: #d7e2e9;
+}
+
+.main-navbar .navbar-collapse,
+.main-navbar .navbar-form {
+    border-color: #d7e2e9;
+}
+
+.main-navbar .navbar-link {
+    color: #d7e2e9;
+}
+
+.main-navbar .navbar-link:hover {
+    color: #e5dbdb;
+}
+
+@media (max-width: 767px) {
+    .main-navbar .navbar-nav .open .dropdown-menu > li > a {
+        color: #d7e2e9;
+    }
+
+    .main-navbar .navbar-nav .open .dropdown-menu > li > a:hover, .main-navbar .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #e5dbdb;
+    }
+
+    .main-navbar .navbar-nav .open .dropdown-menu > .active > a, .main-navbar .navbar-nav .open .dropdown-menu > .active > a:hover, .main-navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #e5dbdb;
+        background-color: #425766;
+    }
+}
+
+.table > thead > .table-header > th {
+    background-color: #30619c;
+    color: white;
+}
+
+
+#map img {
+    max-width: none;
+    height: auto;
+    border: 0
+}
