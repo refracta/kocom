@@ -281,6 +281,8 @@
     <br>
     <br>
 </div>
-
+<script type="text/javascript">
+    $("#{{$board->name}}").css({'background-color': '#ed6e0c'});
+</script>
 {{--{{dump($board)}}--}}
 {{--{{dump($post)}}--}}
