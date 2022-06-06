@@ -117,14 +117,14 @@
                                 <a href="{{route('post', [$name, $postNumber])}}"><span>{{$post->title}}</span></a>
                                 <a
                                     href="{{route('post', [$name, $postNumber])}}"><span
-                                        style="color:#EE5A00;"><small><b>({{$post->getRecommendsCount()}})</b></small></span></a>
+                                        style="color:#EE5A00;"><small><b>({{$post->getCommentsCount()}})</b></small></span></a>
                             </div>
                             <span class="pull-right">
         <font style="color:#BABABA;">
         {{$post->getSimpleCreatedAt()}}&nbsp;&nbsp;
         {{$post->view}}&nbsp;&nbsp;
         </font>
-        1&nbsp;<a class="sideview" href="@if($board->name=='anon'){{""}}@else{{route('board', ['board'=>$name, 'search'=>$nickname,'option'=>'nickname'])}}@endif" alt="{{$nickname}}" style="cursor:pointer;" role="button"
+        {{$post->getRecommendsCount()}}&nbsp;<a class="sideview" href="@if($board->name=='anon'){{""}}@else{{route('board', ['board'=>$name, 'search'=>$nickname,'option'=>'nickname'])}}@endif" alt="{{$nickname}}" style="cursor:pointer;" role="button"
                   data-placement="auto right"
                   tabindex="0" data-toggle="popover"
                   data-trigger="focus">{{$nickname}}</a>        </span>
