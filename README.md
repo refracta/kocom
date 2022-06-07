@@ -1,6 +1,7 @@
 # kocom
 
 KOREATECH COMPUTER COMMUNITY
+![image](https://user-images.githubusercontent.com/58779799/172469567-cafa4b9c-7eb6-4113-8249-59d55d10a8dd.png)
 
 ## 세팅하기
 
