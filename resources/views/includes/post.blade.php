@@ -4,10 +4,10 @@
     use \App\Models\Post;
     use \App\Models\Board;
    $board = $post->getBoard();
-   $is_login = Auth::check();
-   if($is_login){
-       $login_user = Auth::user();
-       $recommended = Recommend::isRecommended($login_user->id, $post->id);
+   $isLogin = Auth::check();
+   if($isLogin){
+       $loginUser = Auth::user();
+       $recommended = Recommend::isRecommended($loginUser->id, $post->id);
    }
    $user = $post->getUser();
    $raw_comments = $post->getComments();
@@ -59,8 +59,8 @@
             <a href="{{route('board', $board->name)}}" class="btn btn-default btn-sm btn-list">목록</a></div>
         <div class="btn-group">
             <a href="{{route('write', $board->name)}}" class="btn btn-default btn-sm btn-write">글쓰기</a></div>
-        @if($is_login)
-            @if($post->user_id == $login_user->id || $login_user->permission >= 10)
+        @if($isLogin)
+            @if($post->user_id == $loginUser->id || $loginUser->permission >= 10)
                 <div class="btn-group">
                     <a href="{{route('modify', ['modify'=>$post->id])}}"
                        class="btn btn-default btn-sm btn-good">수정</a>
@@ -179,7 +179,7 @@
                                             <a class="btn btn-default btn-sm"
                                                href="javascript:comment_box('{{$comment->id}}');">댓글</a>
                                         @endif
-                                        @if(($is_login && $login_user->id == $comment->user_id || $login_user->permission >= 10) && !$comment->deleted)
+                                        @if(($isLogin && $loginUser->id == $comment->user_id || $loginUser->permission >= 10) && !$comment->deleted)
                                             <form style="display: none;" role="form"
                                                   id="comment_delete_{{$comment->id}}" method="post"
                                                   action="{{route('comments.delete')}}" onsubmit=""
@@ -254,8 +254,8 @@
             <a href="{{route('board', $board->name)}}" class="btn btn-default btn-sm btn-list">목록</a></div>
         <div class="btn-group">
             <a href="{{ route('write', $board->name) }}" class="btn btn-default btn-sm btn-write">글쓰기</a></div>
-        @if($is_login)
-            @if($post->user_id == $login_user->id || $login_user->permission >= 10)
+        @if($isLogin)
+            @if($post->user_id == $loginUser->id || $loginUser->permission >= 10)
                 <div class="btn-group">
                     <a href="{{route('modify', ['modify'=>$post->id])}}"
                        class="btn btn-default btn-sm btn-good">수정</a>
