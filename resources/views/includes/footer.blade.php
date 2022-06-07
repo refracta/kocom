@@ -1,5 +1,6 @@
 @php
     use App\Models\Counter;
+    use Illuminate\Support\Facades\Auth;
 @endphp
 <footer class="footer-wrapper col-sm-offset-2" role="contentinfo" style="margin-top:20px;">
     <div class="container-fluid" id="footer">
@@ -21,7 +22,7 @@
             <a href="https://github.com/refracta/kocom">GitHub</a> |
             <a href="mailto:refracta@koreatech.ac.kr">관리자: refracta (refracta@koreatech.ac.kr)</a>
 
-            </p>
+            <p></p>
 
             <ul class="list-inline">
                 <li><a href="{{ route("board", ["notice"]) }}"><strong>공지</strong></a></li>
@@ -42,6 +43,15 @@
                 <span>|</span>
                 <li>오늘 방문자: {{Counter::increaseAndGet()->count}}, 전체 방문자: {{Counter::getFullCount()}}</li>
             </ul>
+            @if(Auth::check())
+                @php
+                    $user = Auth::user();
+                @endphp
+                <p></p>
+                <ul class="list-inline visible-xs">
+                    <li>{{$user->permission == 10 ? "LV: 10 (관리자)" : "LV: ".$user->permission}}, PT: {{$user->count}}</li>
+                </ul>
+            @endif
         </div>
     </div>
 </footer>
