@@ -28,10 +28,10 @@ docker ps
 위 명령어로 `sail-8.1/app`의 CONTAINER ID를 확인합니다.
 
 ```
-docker exec -it {CONTAINER ID} /bin/bash
+docker exec -it {CONTAINER_ID} /bin/bash
 php artisan storage:link
+# laravel에서 사용하는 storage 초기화
 exit
-# storage 초기화
 ```
 
 storage를 초기화합니다.

@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="mb_id" class="col-sm-2 control-label">아이디(이메일)</label>
                 <div class="col-sm-4">
-                    <input type="text" name="email" id="email" class="form-control" maxlength="100" minlength="2"
+                    <input type="email" name="email" id="email" class="form-control" maxlength="100" minlength="2"
                            size="50" itemname="아이디(이메일)" placeholder="아이디(이메일)">
                 </div>
             </div>
