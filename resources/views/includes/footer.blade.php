@@ -48,7 +48,7 @@
                     $user = Auth::user();
                 @endphp
                 <p></p>
-                <ul class="list-inline visible-xs">
+                <ul class="list-inline visible-xs visible-sm">
                     <li><strong>{{$user->nickname}} ({{"LV: ".$user->permission}})</strong>, PT: {{$user->point}}</li>
                 </ul>
             @endif

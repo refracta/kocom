@@ -41,13 +41,13 @@
                 {{$board->alias}}
             </a>
         </div>
-
-        <div class="btn-group">
-            @if(!$is_all)
-                <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
+        @if(!$is_all)
+            @if(($board->name == 'all' && $login_user->permission >= 10) || $board->name != 'all')
+                <div class="btn-group">
+                    <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
+                </div>
             @endif
-        </div>
-
+        @endif
         <div class="hidden-xs" style="block:inline;float:right;margin-right:3px;">
             {{$posts->currentPage()}}/{{$posts->lastPage()}}
         </div>
@@ -153,9 +153,11 @@
             <a href="{{ route('board', $board->name) }}" class="btn btn-default"><i class="fa fa-list"></i> 목록</a>
         </div>
         @if(!$is_all)
-            <div class="btn-group">
-                <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
-            </div>
+            @if(($board->name == 'all' && $login_user->permission >= 10) || $board->name != 'all')
+                <div class="btn-group">
+                    <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
+                </div>
+            @endif
         @endif
 
 
