@@ -49,7 +49,7 @@
                 @endphp
                 <p></p>
                 <ul class="list-inline visible-xs">
-                    <li>{{$user->permission == 10 ? "LV: 10 (관리자)" : "LV: ".$user->permission}}, PT: {{$user->count}}</li>
+                    <li>{{$user->permission == 10 ? "LV: 10 (관리자)" : "LV: ".$user->permission}}, PT: {{$user->point}}</li>
                 </ul>
             @endif
         </div>
