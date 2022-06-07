@@ -9,7 +9,7 @@ KOREATECH COMPUTER COMMUNITY
 docker 및 docker-compose가 설치된 환경에서 아래 명령을 실행합니다.
 
 ```
-git clone https://github.com/refracta/kocom -b develop tmp && \
+git clone https://github.com/refracta/kocom tmp && \
 docker run --rm \
     -v "$(pwd)":/opt \
     -w /opt \
