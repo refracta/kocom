@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- 생성 시간: 22-06-05 23:25
+-- 생성 시간: 22-06-07 19:26
 -- 서버 버전: 8.0.29
 -- PHP 버전: 8.0.19
 
@@ -29,28 +29,27 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `boards` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_only` tinyint(1) NOT NULL
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 테이블의 덤프 데이터 `boards`
 --
 
-INSERT INTO `boards` (`id`, `name`, `alias`, `type`, `user_only`) VALUES
-(1, 'notice', '공지', 'normal', 1),
-(2, 'free', '자유', 'normal', 1),
-(3, 'quot', '견적', 'normal', 1),
-(4, 'qna', 'QnA', 'normal', 1),
-(5, 'buy', '구매', 'normal', 1),
-(6, 'sell', '판매', 'normal', 1),
-(7, 'school', '학교', 'normal', 1),
-(8, 'anon', '익명', 'anonymous', 1),
-(9, 'dog', '강아지', 'normal', 1),
-(10, 'cat', '고양이', 'normal', 1),
-(11, 'inquiry', '문의', 'normal', 1);
+INSERT INTO `boards` (`id`, `name`, `alias`, `type`) VALUES
+(1, 'notice', '공지', 'normal'),
+(2, 'free', '자유', 'normal'),
+(3, 'quot', '견적', 'normal'),
+(4, 'qna', 'QnA', 'normal'),
+(5, 'buy', '구매', 'normal'),
+(6, 'sell', '판매', 'normal'),
+(7, 'school', '학교', 'normal'),
+(8, 'anon', '익명', 'anonymous'),
+(9, 'dog', '강아지', 'normal'),
+(10, 'cat', '고양이', 'normal'),
+(11, 'inquiry', '문의', 'normal');
 
 -- --------------------------------------------------------
 
@@ -63,7 +62,7 @@ CREATE TABLE `comments` (
   `post_id` int NOT NULL,
   `user_id` int NOT NULL,
   `reply` int DEFAULT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -100,96 +99,8 @@ CREATE TABLE `counters` (
 --
 
 INSERT INTO `counters` (`id`, `date`, `count`) VALUES
-(1, '2022-06-06 00:00:00', 281);
-
--- --------------------------------------------------------
-
---
--- 테이블 구조 `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- 테이블 구조 `files`
---
-
-CREATE TABLE `files` (
-  `id` bigint UNSIGNED NOT NULL,
-  `post_id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `file` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- 테이블 구조 `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- 테이블의 덤프 데이터 `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(5, '2022_05_28_175121_create_tasks_table', 1),
-(6, '2022_06_03_091934_create_bbs_table', 2),
-(114, '2022_06_04_020637_create_files_table', 3),
-(175, '2014_10_12_000000_create_users_table', 4),
-(176, '2014_10_12_100000_create_password_resets_table', 4),
-(177, '2019_08_19_000000_create_failed_jobs_table', 4),
-(178, '2019_12_14_000001_create_personal_access_tokens_table', 4),
-(179, '2022_06_04_020455_create_posts_table', 4),
-(180, '2022_06_04_020535_create_boards_table', 4),
-(181, '2022_06_04_020608_create_comments_table', 4),
-(182, '2022_06_05_090905_create_recommends_table', 4),
-(183, '2022_06_05_090952_create_counters_table', 4);
-
--- --------------------------------------------------------
-
---
--- 테이블 구조 `password_resets`
---
-
-CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- 테이블 구조 `personal_access_tokens`
---
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(1, '2022-06-06 00:00:00', 281),
+(2, '2022-06-08 00:00:00', 86);
 
 -- --------------------------------------------------------
 
@@ -201,9 +112,9 @@ CREATE TABLE `posts` (
   `id` bigint UNSIGNED NOT NULL,
   `board_id` int NOT NULL,
   `user_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `files` varchar(5000) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '{}',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `files` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '{}',
   `view` int NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL
@@ -413,7 +324,7 @@ INSERT INTO `posts` (`id`, `board_id`, `user_id`, `title`, `content`, `files`, `
 (197, 2, 1, '자유 게시판 테스트 197', '<p>안녕하세요, 이 글은 테스트를 위해 작성되었습니다.</p>', '{}', 0, '2022-06-06 07:27:20', '2022-06-06 07:27:20'),
 (198, 2, 1, '자유 게시판 테스트 198', '<p>안녕하세요, 이 글은 테스트를 위해 작성되었습니다.</p>', '{}', 0, '2022-06-06 07:27:20', '2022-06-06 07:27:20'),
 (199, 2, 1, '자유 게시판 테스트 199', '<p>안녕하세요, 이 글은 테스트를 위해 작성되었습니다.</p>', '{}', 0, '2022-06-06 07:27:20', '2022-06-06 07:27:20'),
-(200, 2, 1, '자유 게시판 테스트 200', '<p>안녕하세요, 이 글은 테스트를 위해 작성되었습니다.</p>', '{}', 0, '2022-06-06 07:27:20', '2022-06-06 07:27:20'),
+(200, 2, 1, '자유 게시판 테스트 200', '<p>안녕하세요, 이 글은 테스트를 위해 작성되었습니다.</p><p>&nbsp;</p><figure class=\"image\"><img src=\"./storage/uploads/kocom_logo_large_24979.png\"></figure>', '[]', 4, '2022-06-06 07:27:20', '2022-06-08 03:33:16'),
 (201, 3, 2, '딥러닝 개발용 컴퓨터 견적 좀 봐주세요~', '<p>감사합니다.</p>', '[]', 1, '2022-06-06 07:28:01', '2022-06-06 07:28:02'),
 (202, 3, 2, '웹서버용 컴퓨터 견적좀 봐주세요~', '<p>감사합니다.</p>', '[]', 1, '2022-06-06 07:28:33', '2022-06-06 07:28:33'),
 (203, 3, 2, '슈퍼마이크로 보드 서버 견적좀 봐주세요~', '<p>감사합니다.</p>', '[]', 1, '2022-06-06 07:28:57', '2022-06-06 07:28:57'),
@@ -443,7 +354,7 @@ INSERT INTO `posts` (`id`, `board_id`, `user_id`, `title`, `content`, `files`, `
 (229, 7, 1, '오늘 학식 메뉴 맛있네요', '', '[]', 1, '2022-06-06 07:49:41', '2022-06-06 07:49:41'),
 (230, 7, 1, '대즐 커피 맛있네요', '', '[]', 1, '2022-06-06 07:49:57', '2022-06-06 07:49:57'),
 (231, 7, 1, '새로 짓는 미래학습관 건물 멋진 것 같아요', '', '[]', 1, '2022-06-06 07:50:36', '2022-06-06 07:50:37'),
-(233, 1, 1, '[데모] 글쓰기 테스트', '<p>굵게</p><p><i>기울임꼴</i></p><p><span class=\"text-huge\">글자 크기 매우 큰</span></p><p><span class=\"text-tiny\">글자 크기 매우 작은</span></p><p><span style=\"color:hsl(0,75%,60%);\">빨간색 글씨</span></p><p><span style=\"background-color:hsl(120,75%,60%);color:hsl(0,75%,60%);\">배경 색깔이 있는 글씨</span></p><p>Times New Roman VS <span style=\"font-family:\'Courier New\', Courier, monospace;\">Courier New</span></p><p><a href=\"https://google.com\">하이퍼 링크</a></p><ul><li>목록 1</li><li>목록 2</li><li>목록 1</li><li>목록 2</li></ul><p style=\"margin-left:80px;\">들여쓰기</p><figure class=\"image\"><img src=\"http://localhost/storage/uploads/kocom_logo_large_1654470592.png\"></figure><p>&lt;사진 첨부&gt;</p><blockquote><p>인용 단락</p></blockquote><figure class=\"table\"><table><tbody><tr><td>표</td><td>표</td><td>표</td></tr><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr></tbody></table></figure><p>&nbsp;</p><p><code>System.out.println(\"코드\")</code></p><pre><code class=\"language-java\">public static void main(String[] args) {\r\n	System.out.println(\"코드 블럭\");\r\n}</code></pre><p style=\"margin-left:80px;\">&nbsp;</p>', '[\"kocom_c78e9.png\",\"kocom_logo_large_08acb.png\",\"kocom_logo_small_01b09.png\",\"kocom_logos_fb5be.zip\"]', 26, '2022-06-06 07:52:42', '2022-06-06 08:20:52'),
+(233, 1, 1, '[데모] 글쓰기 테스트', '<p>굵게</p><p><i>기울임꼴</i></p><p><span class=\"text-huge\">글자 크기 매우 큰</span></p><p><span class=\"text-tiny\">글자 크기 매우 작은</span></p><p><span style=\"color:hsl(0,75%,60%);\">빨간색 글씨</span></p><p><span style=\"background-color:hsl(120,75%,60%);color:hsl(0,75%,60%);\">배경 색깔이 있는 글씨</span></p><p>Times New Roman VS <span style=\"font-family:\'Courier New\', Courier, monospace;\">Courier New</span></p><p><a href=\"https://google.com\">하이퍼 링크</a></p><ul><li>목록 1</li><li>목록 2</li><li>목록 1</li><li>목록 2</li></ul><p style=\"margin-left:80px;\">들여쓰기</p><figure class=\"image image_resized\" style=\"width:71.54%;\"><img src=\"/storage/uploads/kocom_9a7ef.png\"></figure><p>&lt;사진 첨부&gt;</p><blockquote><p>인용 단락</p></blockquote><figure class=\"table\"><table><tbody><tr><td>표</td><td>표</td><td>표</td></tr><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr></tbody></table></figure><p>&nbsp;</p><p><code>System.out.println(\"코드\")</code></p><pre><code class=\"language-java\">public static void main(String[] args) {\r\n	System.out.println(\"코드 블럭\");\r\n}</code></pre><p style=\"margin-left:80px;\">&nbsp;</p>', '[\"kocom_c78e9.png\",\"kocom_logo_large_08acb.png\",\"kocom_logo_small_01b09.png\",\"kocom_logos_fb5be.zip\"]', 48, '2022-06-06 07:52:42', '2022-06-08 04:26:08'),
 (236, 1, 1, '테스트 공지사항 1', '', '[]', 1, '2022-06-06 07:54:57', '2022-06-06 07:54:57'),
 (237, 1, 1, '테스트 공지사항2', '', '[]', 1, '2022-06-06 07:55:06', '2022-06-06 07:55:07'),
 (238, 7, 1, '오늘 축구장에서 축구하실분 있나요?', '', '[]', 1, '2022-06-06 07:55:53', '2022-06-06 07:55:53'),
@@ -454,7 +365,7 @@ INSERT INTO `posts` (`id`, `board_id`, `user_id`, `title`, `content`, `files`, `
 (243, 9, 1, '산책 중에 찍어봤어요', '', '[]', 1, '2022-06-06 07:58:24', '2022-06-06 07:58:24'),
 (244, 9, 1, '귀여운 강아지 사진 보고가세요', '', '[]', 1, '2022-06-06 07:58:47', '2022-06-06 07:58:47'),
 (245, 10, 1, '학교 길고양이 사진 찍었어요', '', '[]', 1, '2022-06-06 07:59:14', '2022-06-06 07:59:15'),
-(246, 10, 1, '고양이 사진 모음입니다', '', '[]', 1, '2022-06-06 07:59:28', '2022-06-06 07:59:29'),
+(246, 10, 1, '고양이 사진 모음입니다', '', '[]', 3, '2022-06-06 07:59:28', '2022-06-08 04:01:09'),
 (249, 8, 1, '진로에 대해서 고민이 있습니다', '', '[]', 1, '2022-06-06 08:00:44', '2022-06-06 08:00:44'),
 (250, 8, 1, '학교 생활에 고민이 있습니다', '', '[]', 1, '2022-06-06 08:00:56', '2022-06-06 08:00:56'),
 (251, 8, 1, '[데모] 익명 게시판 사용', '', '[]', 7, '2022-06-06 08:01:21', '2022-06-06 08:23:12'),
@@ -480,14 +391,14 @@ CREATE TABLE `recommends` (
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nickname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nickname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `point` int NOT NULL DEFAULT '0',
   `permission` int NOT NULL DEFAULT '0',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -497,11 +408,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nickname`, `email`, `email_verified_at`, `password`, `point`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'refracta', 'refracta', 'refracta@koreatech.ac.kr', '2022-06-06 07:27:13', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 101459, 10, '3zhLf3OXOn2wN9Ih62JDIi21LzN31i8wm0xrfKL8Csd36rk6i7Qm4nRagc2L', '2022-06-06 07:27:14', '2022-06-06 08:20:44'),
-(2, 'user1', '김코룡', 'user1@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1635, 0, '3qgXhRCi90UNfIW9eBvdW3Vxi3VMGkRwHxBUIa47bKvc1yfLnn57AqhCVeif', '2022-06-06 07:27:14', '2022-06-06 08:23:11'),
-(3, 'user2', '최코룡', 'user2@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 0, 0, 'iil7Db9KaF', '2022-06-06 07:27:14', '2022-06-06 07:27:14'),
-(4, 'user3', '박코룡', 'user3@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 0, 0, 'gNO11DC90S', '2022-06-06 07:27:14', '2022-06-06 07:27:14'),
-(5, 'user4', '이코룡', 'user4@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 0, 0, '72yOtKPIUY', '2022-06-06 07:27:14', '2022-06-06 07:27:14');
+(1, 'refracta', 'refracta', 'refracta@koreatech.ac.kr', '2022-06-06 07:27:13', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 99999, 10, 'PFGAxD2tzqrhHCv5xvE4RonZAktzCe25yEC3o6xNEfe4GXToG6Omt6x152Sc', '2022-06-06 07:27:14', '2022-06-06 08:20:44'),
+(2, 'user1', '김코룡', 'user1@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1000, 0, '3qgXhRCi90UNfIW9eBvdW3Vxi3VMGkRwHxBUIa47bKvc1yfLnn57AqhCVeif', '2022-06-06 07:27:14', '2022-06-06 08:23:11'),
+(3, 'user2', '최코룡', 'user2@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 0, 1, 'iil7Db9KaF', '2022-06-06 07:27:14', '2022-06-06 07:27:14'),
+(4, 'user3', '박코룡', 'user3@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 0, 1, 'gNO11DC90S', '2022-06-06 07:27:14', '2022-06-06 07:27:14'),
+(5, 'user4', '이코룡', 'user4@koreatech.ac.kr', '2022-06-06 07:27:14', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 0, 1, '72yOtKPIUY', '2022-06-06 07:27:14', '2022-06-06 07:27:14');
 
 --
 -- 덤프된 테이블의 인덱스
@@ -524,39 +435,6 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `counters`
   ADD PRIMARY KEY (`id`);
-
---
--- 테이블의 인덱스 `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- 테이블의 인덱스 `files`
---
-ALTER TABLE `files`
-  ADD PRIMARY KEY (`id`);
-
---
--- 테이블의 인덱스 `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- 테이블의 인덱스 `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
--- 테이블의 인덱스 `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
 -- 테이블의 인덱스 `posts`
@@ -597,31 +475,7 @@ ALTER TABLE `comments`
 -- 테이블의 AUTO_INCREMENT `counters`
 --
 ALTER TABLE `counters`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- 테이블의 AUTO_INCREMENT `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- 테이블의 AUTO_INCREMENT `files`
---
-ALTER TABLE `files`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- 테이블의 AUTO_INCREMENT `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
-
---
--- 테이블의 AUTO_INCREMENT `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 테이블의 AUTO_INCREMENT `posts`
@@ -639,7 +493,7 @@ ALTER TABLE `recommends`
 -- 테이블의 AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

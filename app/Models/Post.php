@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 /**
  * App\Models\Post
@@ -16,23 +17,23 @@ use Carbon\Carbon;
  * @property string $title
  * @property string $content
  * @property string|null $password
- * @method static \Illuminate\Database\Eloquent\Builder|Post newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Post newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Post query()
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereUserId($value)
- * @mixin \Eloquent
+ * @method static Builder|Post newModelQuery()
+ * @method static Builder|Post newQuery()
+ * @method static Builder|Post query()
+ * @method static Builder|Post whereContent($value)
+ * @method static Builder|Post whereCreatedAt($value)
+ * @method static Builder|Post whereId($value)
+ * @method static Builder|Post wherePassword($value)
+ * @method static Builder|Post whereTitle($value)
+ * @method static Builder|Post whereUpdatedAt($value)
+ * @method static Builder|Post whereUserId($value)
+ * @mixin Eloquent
  * @property int $board_id
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereBoardId($value)
+ * @method static Builder|Post whereBoardId($value)
  * @property int $recommend
  * @property int $view
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereRecommend($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereView($value)
+ * @method static Builder|Post whereRecommend($value)
+ * @method static Builder|Post whereView($value)
  */
 class Post extends Model
 {

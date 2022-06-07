@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         date_default_timezone_set('Asia/Seoul');
-        If (env('FORCE_HTTPS')) {
+        if (env('FORCE_HTTPS')) {
             $this->app['request']->server->set('HTTPS', true);
         }
     }

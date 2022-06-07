@@ -1,5 +1,4 @@
 @php
-
     use Illuminate\Support\Facades\Auth;
     use \App\Models\Recommend;
     use \App\Models\Post;
@@ -88,8 +87,7 @@
                 <strong>{{$post->title}}</strong>
             </p>
             <p>
-                <font style="color:#BABABA;">
-                </font></p>
+                <font style="color:#BABABA;"> </font></p>
             <div class="pull-left"><font style="color:#BABABA;"><a class="sideview"
                                                                    href="@if($board->name=='anon'){{""}}@else{{route('board', ['board'=>$board->name, 'search'=>$nickname,'option'=>'nickname'])}}@endif"
                                                                    alt="{{$nickname}}"
@@ -102,8 +100,7 @@
                 <div class="hidden-md hidden-lg pull-left">{{$post->getSimpleCreatedAt()}}</div>
                 <div class="hidden-xs hidden-sm pull-left">{{$post->created_at->format('Y-m-d H:i:s')}}</div>&nbsp;&nbsp;
                 조회 {{$post->view}}&nbsp;&nbsp;
-                추천 {{$post->getRecommendsCount()}}&nbsp;&nbsp;&nbsp;&nbsp; </font>
-            <span class="pull-right">
+                추천 {{$post->getRecommendsCount()}}&nbsp;&nbsp;&nbsp;&nbsp; </font> <span class="pull-right">
     <a href="javascript:prompt('이 글의 주소입니다. CTRL-C를 눌러서 복사하세요.','{{route('post.number', [$post->id])}}');"
        style="letter-spacing:0;"><i class="fa fa-link"></i></a>
     </span>
@@ -114,10 +111,10 @@
             @endphp
             @foreach($files as $file)
 
-                <p><i class="fa fa-file" title="attached file"></i> <a download href="{{asset('storage/uploads/' . $file)}}"
-                                                                       title="">{{$file}}<font
-                            style="font-weight:normal;color:#B8B8B8;">
-                            ({{floor(Storage::disk('local')->size('public/uploads/' . $file) / 1024 * 100)/100}}
+                <p><i class="fa fa-file" title="attached file"></i>
+                    <a download href="{{asset('storage/uploads/' . $file)}}"
+                       title="">{{$file}}<font
+                            style="font-weight:normal;color:#B8B8B8;"> ({{floor(Storage::disk('local')->size('public/uploads/' . $file) / 1024 * 100)/100}}
                             KB)</font></a><br></p>
             @endforeach
 
@@ -173,8 +170,7 @@
                                                     style="cursor:pointer;" role="button"
                                                     data-placement="auto right" tabindex="0" data-toggle="popover"
                                                     data-trigger="focus">{{$cnickname}}</a></strong>
-                                            <font style="color:#BABABA;">
-                                            </font>
+                                            <font style="color:#BABABA;"> </font>
                                             {{$post->getSimpleCreatedAt()}}
                                         @endif
                                     </div>
@@ -267,10 +263,10 @@
                        class="btn btn-danger btn-sm btn-good">삭제</a>
                 </div>
             @endif
-                <div class="btn-group">
-                    <a onclick="javascript:$('#recommend').submit();" target="hiddenframe"
-                       class="btn btn-{{$recommended ? "danger" : "primary"}} btn-sm btn-good">{{$recommended ? "추천해제" : "추천"}}</a>
-                </div>
+            <div class="btn-group">
+                <a onclick="javascript:$('#recommend').submit();" target="hiddenframe"
+                   class="btn btn-{{$recommended ? "danger" : "primary"}} btn-sm btn-good">{{$recommended ? "추천해제" : "추천"}}</a>
+            </div>
         @endif
         <div class="btn-group pull-right">
             <a href="#commentContents" class="btn btn-default btn-sm"><i class="fa fa-chevron-down"></i></a>
@@ -278,11 +274,8 @@
         <div class="btn-group hidden-xs hidden-sm  pull-right">
         </div>
     </div>
-    <br>
-    <br>
+    <br> <br>
 </div>
 <script type="text/javascript">
     $("#{{$board->name}}").css({'background-color': '#ed6e0c'});
 </script>
-{{--{{dump($board)}}--}}
-{{--{{dump($post)}}--}}

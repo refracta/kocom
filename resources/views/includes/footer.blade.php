@@ -1,5 +1,5 @@
 @php
-    use \App\Models\Counter;
+    use App\Models\Counter;
 @endphp
 <footer class="footer-wrapper col-sm-offset-2" role="contentinfo" style="margin-top:20px;">
     <div class="container-fluid" id="footer">
@@ -8,13 +8,7 @@
                 <div>
                     <a class="btn btn-default" data-toggle="collapse" data-target=".navbar-bottom-collapse">정보</a>
                     <div class="btn-group">
-{{--                        <a class="btn btn-default visible-xs" href="{{ route('login') }}">로그인</a>--}}
                     </div>
-
-
-{{--                    <a href="{{ route('search') }}"><strong>검색</strong></a> |--}}
-{{--                    <a href="{{ route('root') }}"><strong>KOCOM</strong></a>--}}
-
                     <a class="btn btn-default pull-right"
                        onclick="$('html, body').animate({scrollTop: 0}, 100);">TOP</a>
 
@@ -23,7 +17,9 @@
         </div>
 
         <div class="collapse navbar-collapse navbar-bottom-collapse">
-            <a href=""><strong>KO</strong>REATECH <strong>COM</strong>PUTER COMMUNITY <strong>KOCOM</strong></a> | <a href="https://github.com/refracta/kocom">GitHub</a> | <a href="mailto:refracta@koreatech.ac.kr">관리자: refracta (refracta@koreatech.ac.kr)</a>
+            <a href=""><strong>KO</strong>REATECH <strong>COM</strong>PUTER COMMUNITY <strong>KOCOM</strong></a> |
+            <a href="https://github.com/refracta/kocom">GitHub</a> |
+            <a href="mailto:refracta@koreatech.ac.kr">관리자: refracta (refracta@koreatech.ac.kr)</a>
 
             </p>
 
@@ -41,8 +37,6 @@
                 <li><a href="{{ route("board", ["sell"]) }}">판매</a></li>
                 <span>|</span>
                 <li><a href="{{ route("board", ["school"]) }}">학교</a></li>
-{{--                <span>|</span>--}}
-{{--                <li><a href="{{ route("board", ["unreg"]) }}">비회원</a></li>--}}
                 <span>|</span>
                 <li><a href="{{ route("board", ["anon"]) }}">익명</a></li>
                 <span>|</span>

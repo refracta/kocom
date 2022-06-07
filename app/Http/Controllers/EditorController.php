@@ -9,23 +9,18 @@ class EditorController extends Controller
     public function uploadImage(Request $request)
     {
         if ($request->hasFile('upload')) {
-            //get filename with extension
             $fileNameWithExt = $request->file('upload')->getClientOriginalName();
 
-            //get filename without extension
             $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-            //get file extension
             $extension = $request->file('upload')->getClientOriginalExtension();
 
-            //filename to store
-            $fileName2Store = $filename . '_' . time() . '.' . $extension;
+            $fileName2Store = $filename . '_' . substr(sha1(time() . rand()), 0, 5) . '.' . $extension;
 
-            //Upload File
             $request->file('upload')->storeAs('public/uploads', $fileName2Store);
 
             echo json_encode([
-                'default' => asset('storage/uploads/' . $fileName2Store),
+                'default' => '/storage/uploads/' . $fileName2Store,
             ]);
         }
     }

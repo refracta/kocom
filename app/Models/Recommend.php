@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,13 +13,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $post_id
  * @property int $user_id
- * @method static \Illuminate\Database\Eloquent\Builder|Recommend newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Recommend newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Recommend query()
- * @method static \Illuminate\Database\Eloquent\Builder|Recommend whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recommend wherePostId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recommend whereUserId($value)
- * @mixin \Eloquent
+ * @method static Builder|Recommend newModelQuery()
+ * @method static Builder|Recommend newQuery()
+ * @method static Builder|Recommend query()
+ * @method static Builder|Recommend whereId($value)
+ * @method static Builder|Recommend wherePostId($value)
+ * @method static Builder|Recommend whereUserId($value)
+ * @mixin Eloquent
  */
 class Recommend extends Model
 {

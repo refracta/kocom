@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,15 +15,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $alias
  * @property string $type
  * @property int $user_only
- * @method static \Illuminate\Database\Eloquent\Builder|Board newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Board newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Board query()
- * @method static \Illuminate\Database\Eloquent\Builder|Board whereAlias($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Board whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Board whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Board whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Board whereUserOnly($value)
- * @mixin \Eloquent
+ * @method static Builder|Board newModelQuery()
+ * @method static Builder|Board newQuery()
+ * @method static Builder|Board query()
+ * @method static Builder|Board whereAlias($value)
+ * @method static Builder|Board whereId($value)
+ * @method static Builder|Board whereName($value)
+ * @method static Builder|Board whereType($value)
+ * @method static Builder|Board whereUserOnly($value)
+ * @mixin Eloquent
  */
 class Board extends Model
 {
@@ -29,6 +31,11 @@ class Board extends Model
 
     protected $table = 'boards';
     protected $primaryKey = 'id';
+
+    public static function getBoardByName($name): Board
+    {
+        return $name == 'all' ? Board::getAllBoard() : Board::whereName($name)->first();
+    }
 
     public static function getAllBoard(): Board
     {
@@ -38,14 +45,9 @@ class Board extends Model
         return $allBoard;
     }
 
-    public static function getBoardByName($name): Board
-    {
-        return $name == 'all' ? Board::getAllBoard() : Board::whereName($name)->first();
-    }
-
     public function getPost($number): Post
     {
-        if($this->name == 'all'){
+        if ($this->name == 'all') {
             return Post::orderBy('id')->skip($number - 1)->first();
         } else {
             return Post::whereBoardId($this->id)->orderBy('id')->skip($number - 1)->first();

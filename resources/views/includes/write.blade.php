@@ -44,14 +44,12 @@
 
 
             <div class="form-group">
-                <label class="col-xs-1 hidden-xs">파일
-                </label>
+                <label class="col-xs-1 hidden-xs">파일 </label>
                 <div class="col-xs-12 col-sm-11">
                     <a class="btn btn-default btn-xs" onclick="addFile();" style="cursor:pointer;"
                        title="add file/첨부파일 입력창 1개 추가"><i class="fa fa-plus"></i></a>&nbsp;&nbsp;
                     <a class="btn btn-default btn-xs" onclick="deleteFile();" style="cursor:pointer;"
-                       title="delete file/첨부파일 입력창 1개 삭제"><i class="fa fa-minus"></i></a>
-                    <br>
+                       title="delete file/첨부파일 입력창 1개 삭제"><i class="fa fa-minus"></i></a> <br>
                     <table id="variableFiles" class="table table-condensed"
                            style="word-break:break-all;overflow:hidden;table-layout:fixed">
                         <tbody>
@@ -120,6 +118,7 @@
 
 <script type="text/javascript">
     $("#{{$board->name}}").css({'background-color': '#ed6e0c'});
+
     class MyUploadAdapter {
         constructor(loader) {
             this.loader = loader;

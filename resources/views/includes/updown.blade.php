@@ -1,4 +1,3 @@
-<!-- 위/아래 이동하는 jQuery -->
 <a href="#" class="btn btn-default back-to-top"><span
         class="glyphicon glyphicon-chevron-up"></span></a>
 <a href="#" class="btn btn-default go-to-bottom"><span

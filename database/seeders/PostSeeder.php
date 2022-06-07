@@ -16,7 +16,7 @@ class PostSeeder extends Seeder
     {
         $board_name_list = ["notice", "free", "quot", "qna", "buy", "sell", "school", "anon", "dog", "cat", "inquiry"];
 
-        for($i = 1; $i <= 200; $i++){
+        for ($i = 1; $i <= 200; $i++) {
             DB::table('posts')->insert(
                 array(
                     'user_id' => 1,

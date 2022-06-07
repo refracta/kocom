@@ -8,7 +8,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\Console\Input\Input;
 
 class PostController extends Controller
 {
@@ -27,12 +26,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
-
-
             $board_name = $request->input('board_name');
             $board = Board::getBoardByName($board_name);
 
-            if($board->name =='notice' && Auth::user()->permission < 10){
+            if ($board->name == 'notice' && Auth::user()->permission < 10) {
                 return Redirect::route('board', $board->name)->withErrors('공지 게시판은 관리자만 작성할 수 있습니다.');
             }
 
@@ -41,7 +38,7 @@ class PostController extends Controller
             $content = strip_tags($content, ['p', 'a', 'i', 'img', 'b', 'span', 'code', 'pre', 'ul', 'li', 'blockquote', 'figure', 'table', 'tbody', 'tr', 'td', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
             if ($request->input('modify') == null) {
                 $post = new Post;
-                $is_modify = false;
+                $isModify = false;
                 $post->title = $title;
                 $post->content = $content;
                 $post->created_at = Carbon::now();
@@ -50,7 +47,7 @@ class PostController extends Controller
                 $post->user_id = Auth::user()->id;
             } else {
                 $post = Post::find($request->input('modify'));
-                $is_modify = true;
+                $isModify = true;
                 $post->title = $title;
                 $post->content = $content;
                 if ($post->getUser()->id != Auth::user()->id) {
@@ -86,7 +83,7 @@ class PostController extends Controller
             }
             $post->files = json_encode($fileNames);
 
-            if (!$is_modify) {
+            if (!$isModify) {
                 if ($board->name == 'qna' || $board->name == 'quot') {
                     if (Auth::user()->point - 30 <= 0) {
                         return Redirect::route('board', $board->name)->withErrors('포인트가 부족합니다!\nQnA 또는 견적 게시판은 게시글 1개당 포인트 30점이 소모됩니다.');

@@ -4,7 +4,7 @@
     use App\Models\Board;
 
     $is_all = $board->name == 'all';
-    $query = Post::query();;
+    $query = Post::query();
     if (!$is_all) {
         $query = $query->whereBoardId($board->id);
     } else {
@@ -55,12 +55,9 @@
 
     <!-- 제목 -->
     <form name="fboardlist" method="post" role="form" class="form-inline">
-        <input type="hidden" name="bo_table" value="deep">
-        <input type="hidden" name="sfl" value="">
-        <input type="hidden" name="stx" value="">
-        <input type="hidden" name="spt" value="">
-        <input type="hidden" name="page" value="1">
-        <input type="hidden" name="sw" value="">
+        <input type="hidden" name="bo_table" value="deep"> <input type="hidden" name="sfl" value="">
+        <input type="hidden" name="stx" value=""> <input type="hidden" name="spt" value="">
+        <input type="hidden" name="page" value="1"> <input type="hidden" name="sw" value="">
         <input type="hidden" name="sca" value="">
 
         <div class="table-responsive" id="list_deep" name="list_deep">
@@ -97,13 +94,14 @@
                         <td class="hidden-xs">
                             <span style="color:#BABABA;">{{$postNumber}}</span></td>
                         <td class="hidden-xs" align="left" style="word-break:break-all;">
-                            <a href="{{route('post', [$name, $postNumber])}}"><span>{{$post->title}}</span></a>
-                            <a
+                            <a href="{{route('post', [$name, $postNumber])}}"><span>{{$post->title}}</span></a> <a
                                 href="{{route('post', [$name, $postNumber])}}"><span
                                     style="color:#EE5A00;"><small>({{$post->getCommentsCount()}})</small></span></a>
                         </td>
                         <td class="hidden-xs">
-                            <a class="sideview" href="@if($board->name=='anon'){{""}}@else{{route('board', ['board'=>$name, 'search'=>$nickname,'option'=>'nickname'])}}@endif" alt="{{$nickname}}" style="cursor:pointer;" role="button"
+                            <a class="sideview"
+                               href="@if($board->name=='anon'){{""}}@else{{route('board', ['board'=>$board->isAllBoard() ? 'all' : $name, 'search'=>$nickname,'option'=>'nickname'])}}@endif"
+                               alt="{{$nickname}}" style="cursor:pointer;" role="button"
                                data-placement="auto right"
                                tabindex="0" data-toggle="popover"
                                data-trigger="focus">{{$nickname}}</a></td>
@@ -114,20 +112,23 @@
                     <tr class="visible-xs">
                         <td align="left" style="word-break:break-all;">
                             <div>
-                                <a href="{{route('post', [$name, $postNumber])}}"><span>{{$post->title}}</span></a>
-                                <a
+                                <a href="{{route('post', [$name, $postNumber])}}"><span>{{$post->title}}</span></a> <a
                                     href="{{route('post', [$name, $postNumber])}}"><span
                                         style="color:#EE5A00;"><small><b>({{$post->getCommentsCount()}})</b></small></span></a>
                             </div>
                             <span class="pull-right">
-        <font style="color:#BABABA;">
-        {{$post->getSimpleCreatedAt()}}&nbsp;&nbsp;
-        {{$post->view}}&nbsp;&nbsp;
-        </font>
-        {{$post->getRecommendsCount()}}&nbsp;<a class="sideview" href="@if($board->name=='anon'){{""}}@else{{route('board', ['board'=>$name, 'search'=>$nickname,'option'=>'nickname'])}}@endif" alt="{{$nickname}}" style="cursor:pointer;" role="button"
-                  data-placement="auto right"
-                  tabindex="0" data-toggle="popover"
-                  data-trigger="focus">{{$nickname}}</a>        </span>
+                                <font style="color:#BABABA;">
+                                    {{$post->getSimpleCreatedAt()}}&nbsp;&nbsp;
+                                    {{$post->view}}&nbsp;&nbsp;
+                                </font>
+                                    {{$post->getRecommendsCount()}}&nbsp;
+                                <a class="sideview"
+                                   href="@if($board->name=='anon'){{""}}@else{{route('board', ['board'=>$board->isAllBoard() ? 'all' : $name, 'search'=>$nickname,'option'=>'nickname'])}}@endif"
+                                   alt="{{$nickname}}" style="cursor:pointer;" role="button"
+                                   data-placement="auto right"
+                                   tabindex="0" data-toggle="popover"
+                                   data-trigger="focus">{{$nickname}}</a>
+                            </span>
                         </td>
                     </tr>
                     @php
@@ -165,8 +166,7 @@
 
         <div class="pull-right collapse navbar-collapse board-bottom-search-collapse">
             <div class="form-group">
-                <label class="sr-only" for="option">sfl</label>
-                <select name="option" class="form-control" id="option">
+                <label class="sr-only" for="option">sfl</label> <select name="option" class="form-control" id="option">
                     <option value="tc">제목+내용</option>
                     <option value="title">제목</option>
                     <option value="content">내용</option>

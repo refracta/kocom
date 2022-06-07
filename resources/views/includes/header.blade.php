@@ -5,13 +5,11 @@
                 <a class="navbar-brand hidden-xs hidden-sm hidden-md" href="{{ route("root") }}"
                    style="border:0;margin-top:-15px;margin-left:-10px;">
                     <img src="/resources/kocom_logo_large.png" alt="KOCOM, 한기대 컴퓨터 커뮤니티"
-                         style="width:200px;height:60px;margin-top:5px;margin-bottom: 5px;">
-                </a>
+                         style="width:200px;height:60px;margin-top:5px;margin-bottom: 5px;"> </a>
                 <div class="navbar-brand visible-xs visible-sm visible-md"
                      style="margin-top:-5px;margin-bottom:15px;float:left;">
                     <a href="{{ route("root") }}" style="border:0;">
-                        <img src="/resources/kocom_logo_small.png" alt="KOCOM, 한기대 컴퓨터 커뮤니티" style="height:50px;">
-                    </a>
+                        <img src="/resources/kocom_logo_small.png" alt="KOCOM, 한기대 컴퓨터 커뮤니티" style="height:50px;"> </a>
                 </div>
             </div>
 
@@ -22,10 +20,8 @@
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                                 data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> <span class="icon-bar"></span>
                         </button>
                     </div>
 
@@ -38,9 +34,9 @@
                             <li id="buy"><a href="{{ route("board", ["buy"]) }}">구매</a></li>
                             <li id="sell"><a href="{{ route("board", ["sell"]) }}">판매</a></li>
                             <li id="school"><a href="{{ route("board", ["school"]) }}">학교</a></li>
-{{--                            <li id="unreg"><a href="{{ route("board", ["unreg"]) }}">비회원</a></li>--}}
+                            {{--                            <li id="unreg"><a href="{{ route("board", ["unreg"]) }}">비회원</a></li>--}}
                             <li id="anon"><a href="{{ route("board", ["anon"]) }}">익명</a></li>
-{{--                            <li id="deep"><a href="#">출석</a></li>--}}
+                            {{--                            <li id="deep"><a href="#">출석</a></li>--}}
                             <li class="dropdown">
                                 <a class="dropdown-toggle hidden-xs hidden-sm" href="#"
                                    data-toggle="dropdown">기타<b class="caret"></b></a>

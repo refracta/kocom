@@ -23,8 +23,7 @@ class BoardSeeder extends Seeder
                 array(
                     'name' => $name,
                     'alias' => $alias,
-                    'type' => $name == 'anon' ? 'anonymous' : 'normal',
-                    'user_only' => $name != 'unreg'
+                    'type' => $name == 'anon' ? 'anonymous' : 'normal'
                 )
             );
         }

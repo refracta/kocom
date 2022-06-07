@@ -1,5 +1,5 @@
 @php
-    use \Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Auth;
     if(Auth::check()){
         $user = Auth::user();
     }
@@ -9,7 +9,7 @@
         <div class="panel-heading">
             <strong><a href="#" style="color: white">{{$user->nickname}}</a></strong>
             <span class="pull-right" style="margin-right:-10px;margin-left:5px;border:1px;"></span>
-            <a href=""><span class="pull-right"><font
+            <a class="point-info" href=""><span class="pull-right"><font
                         color="#737373"><small style="color: #efefef">{{$user->point}} PT</small></font></span></a>
         </div>
         <div class="btn-group btn-group-justified">
@@ -33,8 +33,7 @@
         <input type="hidden" name="url" value="{{ route("root") }}">
 
         <input type="text" class="form-control" style="width:100%" name="email" id="email" maxlength="100"
-               itemname="아이디(이메일)" placeholder="아이디(이메일)">
-        <label for="email" class="sr-only">member_email</label>
+               itemname="아이디(이메일)" placeholder="아이디(이메일)"> <label for="email" class="sr-only">member_email</label>
         <input type="password" class="form-control" style="width:100%;margin-top:-1px;" name="password"
                id="outlogin_mb_password" maxlength="50" itemname="패스워드" placeholder="비밀번호">
         <label for="outlogin_mb_password" class="sr-only">password</label>
@@ -56,8 +55,6 @@
         <div class="btn-group btn-group-justified" style="margin-bottom:3px;">
             <a class="btn btn-default" style="border-color: #ffffff;" title="회원가입"
                href="{{ route("register") }}">회원가입</a>
-            {{--<a class="btn btn-default" style="border-color: #ffffff;" title=""
-               href="">아이디 찾기</a>--}}
         </div>
 
     </form>
@@ -66,9 +63,8 @@
 
 <form action="{{route('board',['board'=>'all'])}}" id="cse-search-box" target="_blank" accept-charset="UTF-8">
     <div>
-        <input type="text" name="search" size="16" placeholder="검색 내용" style="width:130px;">
-        <input type="submit" value="검색" class="pull-right">
-        <input name="option" value="tc" type="hidden">
+        <input type="text" name="search" size="16" placeholder="검색 내용" style="width:calc(100% - 45px);">
+        <input type="submit" value="검색" class="pull-right"> <input name="option" value="tc" type="hidden">
     </div>
 </form>
 
