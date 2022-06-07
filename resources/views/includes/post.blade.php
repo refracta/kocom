@@ -7,7 +7,6 @@
    $isLogin = Auth::check();
    if($isLogin){
        $loginUser = Auth::user();
-       $recommended = Recommend::isRecommended($loginUser->id, $post->id);
    }
    $user = $post->getUser();
    $raw_comments = $post->getComments();
