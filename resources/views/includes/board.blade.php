@@ -6,7 +6,6 @@
     $isLogin = Auth::check();
     if($isLogin){
        $loginUser = Auth::user();
-       $recommended = Recommend::isRecommended($loginUser->id, $post->id);
     }
     $is_all = $board->name == 'all';
     $query = Post::query();
