@@ -1,0 +1,34 @@
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
+.panel {
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.container-fluid {
+    max-width: 1270px;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+
+    .btn-sm {
+        font-size: 14px;
+    }
+
+    .navbar.resp .nav-collapse {
+        width: 50%;
+    }
+}
+
+td {
+    white-space: inherit !important
+}
+
+.nav > li {
+    display: inline-block
+}
