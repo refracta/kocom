@@ -42,7 +42,7 @@
             </a>
         </div>
         @if(!$is_all)
-            @if(($board->name == 'all' && $login_user->permission >= 10) || $board->name != 'all')
+            @if(($board->name == 'notice' && $login_user->permission >= 10) || $board->name != 'notice')
                 <div class="btn-group">
                     <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
                 </div>
@@ -153,7 +153,7 @@
             <a href="{{ route('board', $board->name) }}" class="btn btn-default"><i class="fa fa-list"></i> 목록</a>
         </div>
         @if(!$is_all)
-            @if(($board->name == 'all' && $login_user->permission >= 10) || $board->name != 'all')
+            @if(($board->name == 'notice' && $login_user->permission >= 10) || $board->name != 'notice')
                 <div class="btn-group">
                     <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
                 </div>
