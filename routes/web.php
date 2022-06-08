@@ -22,11 +22,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('test', function ($data) {
-    return view('layouts.test', $data);
-})->name('test');
-
 Route::post('comments/create', [CommentController::class, 'store'])->name('comments.create');
 Route::post('comments/delete', [CommentController::class, 'delete'])->name('comments.delete');
 Route::post('recommends', [RecommendController::class, 'toggle'])->name('recommends');
@@ -34,18 +29,11 @@ Route::post('posts/create', [PostController::class, 'store'])->name('posts.creat
 Route::post('posts/delete', [PostController::class, 'delete'])->name('posts.delete');
 Route::post('upload/image', [EditorController::class, 'uploadImage'])->name('upload.image');
 
-
 Route::get('/', function () {
     return view('layouts.root');
 })->name('root');
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__ . '/auth.php';
-
 
 Route::get('login', function () {
     return view('layouts.login');
