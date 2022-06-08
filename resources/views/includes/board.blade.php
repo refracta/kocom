@@ -7,9 +7,9 @@
     if($isLogin){
        $loginUser = Auth::user();
     }
-    $is_all = $board->name == 'all';
+    $isAll = $board->name == 'all';
     $query = Post::query();
-    if (!$is_all) {
+    if (!$isAll) {
         $query = $query->whereBoardId($board->id);
     } else {
         $anon = Board::getBoardByName('anon');
@@ -45,7 +45,7 @@
                 {{$board->alias}}
             </a>
         </div>
-        @if(!$is_all)
+        @if(!$isAll)
             @if(($board->name == 'notice' && $loginUser->permission >= 10) || $board->name != 'notice')
                 <div class="btn-group">
                     <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
@@ -156,7 +156,7 @@
         <div class="btn-group">
             <a href="{{ route('board', $board->name) }}" class="btn btn-default"><i class="fa fa-list"></i> 목록</a>
         </div>
-        @if(!$is_all)
+        @if(!$isAll)
             @if(($board->name == 'notice' && $loginUser->permission >= 10) || $board->name != 'notice')
                 <div class="btn-group">
                     <a href="{{ route('write', $board->name) }}" class="btn btn-default"><i class="fa fa-edit"></i> 글쓰기</a>
