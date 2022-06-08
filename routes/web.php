@@ -94,10 +94,3 @@ Route::get('{board}/{number}', function ($board, $number) {
     $post = $board->getPost($number);
     return view('layouts.post', ['post' => $post]);
 })->middleware(['auth'])->name('post');
-
-Route::get('/tasks/', [TaskController::class, 'index']);
-
-Route::get('/tasks/create', [TaskController::class, 'create']);
-
-Route::post('/tasks/', [TaskController::class, 'store']);
-
